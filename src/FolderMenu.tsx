@@ -27,11 +27,12 @@ export default function FolderMenu({
           return (
             <div key={item.name}>
               <div
-                className={`row ${
-                  item.isRoot ? "root" : active === item.name ? "active" : ""
-                } ${selected === item.name ? "selected" : ""}`}
+                className={`row${
+                  item.isRoot ? " root" : active === item.name ? " active" : ""
+                }${selected === item.name ? " selected" : ""}`}
                 onClick={(e) => {
                   e.preventDefault();
+                  e.stopPropagation();
                   setActive(item.name);
                   setSelected(item.name);
                   setCollapsed({
@@ -40,10 +41,15 @@ export default function FolderMenu({
                   });
                 }}
               >
+                <div></div>
                 <div
                   className={`folder ${collapsed[item.name] ? "" : "closed"}`}
                 ></div>
-                <a href={item.link}>{item.label}</a>
+                {item.isRoot ? (
+                  <h3>{item.label}</h3>
+                ) : (
+                  <a href={item.link}>{item.label}</a>
+                )}
               </div>
               {item.children && (
                 <div
@@ -66,15 +72,17 @@ export default function FolderMenu({
         return (
           <div
             key={item.name}
-            className={`row ${active === item.name ? "active" : ""} ${
-              selected === item.name ? "selected" : ""
+            className={`row${active === item.name ? " active" : ""}${
+              selected === item.name ? " selected" : ""
             }`}
             onClick={(e) => {
               e.preventDefault();
+              e.stopPropagation();
               setActive(item.name);
               setSelected(item.name);
             }}
           >
+            <div className="border"></div>
             <div className="code"></div>
             <a href={item.link}>{item.label}</a>
           </div>
