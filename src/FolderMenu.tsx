@@ -43,7 +43,7 @@ export default function FolderMenu({
               >
                 <div></div>
                 <div
-                  className={`folder ${collapsed[item.name] ? "" : "closed"}`}
+                  className={`folder ${!!collapsed[item.name] ? "" : "closed"}`}
                 ></div>
                 {item.isRoot ? (
                   <h3>{item.label}</h3>
@@ -54,7 +54,7 @@ export default function FolderMenu({
               {item.children && (
                 <div
                   style={{
-                    display: `${!collapsed[item.name] ? "none" : "block"}`,
+                    display: `${!!collapsed[item.name] ? "none" : "block"}`,
                   }}
                 >
                   <FolderMenu
