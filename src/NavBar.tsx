@@ -8,6 +8,7 @@ export default function NavBar() {
   const [active, setActive] = useState<string>("");
   const [selected, setSelected] = useState<string>("");
   const [mouseHover, setMouseHover] = useState<boolean>(false);
+  const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
   const handleOnMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
     setMouseHover(true);
@@ -44,6 +45,8 @@ export default function NavBar() {
         setActive={setActive}
         selected={selected}
         setSelected={setSelected}
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
       />
     </nav>
   );

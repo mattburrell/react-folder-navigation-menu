@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { IMenu, IMenuItem } from "./menu";
 
 export interface IFolderMenuProps {
   data: IMenu;
   active: string;
-  setActive: React.Dispatch<React.SetStateAction<string>>;
+  setActive: Dispatch<SetStateAction<string>>;
   selected: string;
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
+  setSelected: Dispatch<SetStateAction<string>>;
+  collapsed: Record<string, boolean>;
+  setCollapsed: Dispatch<SetStateAction<Record<string, boolean>>>;
 }
 
 export default function FolderMenu({
@@ -15,9 +17,9 @@ export default function FolderMenu({
   setActive,
   selected,
   setSelected,
+  collapsed,
+  setCollapsed,
 }: IFolderMenuProps): JSX.Element {
-  const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
-
   if (!data) return <></>;
 
   return (
@@ -63,6 +65,8 @@ export default function FolderMenu({
                     setActive={setActive}
                     selected={selected}
                     setSelected={setSelected}
+                    collapsed={collapsed}
+                    setCollapsed={setCollapsed}
                   />
                 </div>
               )}
