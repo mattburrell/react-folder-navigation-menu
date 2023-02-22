@@ -53,12 +53,8 @@ export default function FolderMenu({
                   <a href={item.link}>{item.label}</a>
                 )}
               </div>
-              {item.children && (
-                <div
-                  style={{
-                    display: `${!!collapsed[item.name] ? "none" : "block"}`,
-                  }}
-                >
+              {item.children && !!!collapsed[item.name] && (
+                <div>
                   <FolderMenu
                     data={item.children}
                     active={active}
