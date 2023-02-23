@@ -5,7 +5,7 @@ import { useOutsideClick } from "../hooks/use-outside-click";
 
 interface NavBarProps {
   title?: string;
-  menu: IMenu;
+  menu: Menu;
 }
 
 export default function NavBar({ menu, title = "MENU" }: NavBarProps) {

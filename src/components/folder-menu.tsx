@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface IFolderMenuProps {
-  data: IMenu;
+interface FolderMenuProps {
+  data: Menu;
   active: string;
   setActive: Dispatch<SetStateAction<string>>;
   selected: string;
@@ -18,12 +18,13 @@ export default function FolderMenu({
   setSelected,
   collapsed,
   setCollapsed,
-}: IFolderMenuProps): JSX.Element {
+}: FolderMenuProps): JSX.Element {
+  // base case
   if (!data) return <></>;
 
   return (
     <div className="submenu">
-      {data.map((item: IMenuItem) => {
+      {data.map((item: MenuItem) => {
         if (item.isFolder) {
           return (
             <div key={item.name}>

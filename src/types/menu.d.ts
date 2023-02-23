@@ -1,11 +1,11 @@
-interface IMenuItem {
+type MenuItem = {
   isFolder: boolean;
   name: string; // must be unique
   label: string;
   icon?: string;
   link?: string;
-  children?: IMenuItem[];
+  children?: MenuItem[];
   isRoot?: boolean;
-}
+};
 
-type IMenu = IMenuItem[];
+type Menu = MenuItem[];

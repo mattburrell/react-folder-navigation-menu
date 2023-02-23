@@ -1,4 +1,4 @@
-const menu: IMenu = [
+const menu: Menu = [
   {
     isFolder: true,
     label: "PROJECT",

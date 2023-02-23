@@ -6,7 +6,7 @@ import NavBar from "./navbar";
 const title = "MENU";
 const blog = "Blog";
 const post = "Post";
-const blogMenu: IMenu = [
+const blogMenu: Menu = [
   {
     isRoot: true,
     isFolder: true,
