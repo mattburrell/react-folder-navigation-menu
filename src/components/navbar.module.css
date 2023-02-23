@@ -1,0 +1,27 @@
+.nav {
+  background-color: #252526;
+  color: #cccccc;
+  grid-area: nav;
+  overflow: auto;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 13px;
+  font-weight: 400;
+  min-height: 200px;
+  padding-bottom: 50px;
+  border: 1px solid transparent;
+}
+
+.selected {
+  border: 1px solid #1481d1;
+  background-color: transparent;
+}
+
+.header {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 35px;
+  margin: 0;
+  padding-left: 23px;
+}

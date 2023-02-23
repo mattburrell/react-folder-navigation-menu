@@ -1,32 +1,4 @@
-.nav {
-  background-color: #252526;
-  color: #cccccc;
-  grid-area: nav;
-  overflow: auto;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-size: 13px;
-  font-weight: 400;
-  min-height: 200px;
-  padding-bottom: 50px;
-  border: 1px solid transparent;
-}
-
-.nav.selected {
-  border: 1px solid #1481d1;
-  background-color: transparent;
-}
-
-.nav h2 {
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 35px;
-  margin: 0;
-  padding-left: 23px;
-}
-
-.nav h3 {
+.subheader {
   margin: 0;
   padding: 0;
   line-height: 22px;
@@ -34,33 +6,33 @@
   font-weight: 700;
 }
 
-.nav .submenu {
+.submenu {
   cursor: pointer;
   display: grid;
   grid-template-columns: 1fr;
 }
 
-.nav > .submenu > .row:not(:first-child) {
+.submenu > .row:not(:first-child) {
   padding-left: 10px;
 }
 
-.nav .submenu .submenu .row {
+.submenu .submenu .row {
   padding-left: 20px;
 }
 
-.nav .submenu .submenu .submenu .row {
+.submenu .submenu .submenu .row {
   padding-left: 30px;
 }
 
-.nav .submenu .submenu .submenu .submenu .row {
+.submenu .submenu .submenu .submenu .row {
   padding-left: 40px;
 }
 
-.nav .submenu .submenu .submenu .submenu .submenu .row {
+.submenu .submenu .submenu .submenu .submenu .row {
   padding-left: 50px;
 }
 
-.nav .row {
+.row {
   display: grid;
   grid-template-columns: 5px auto 1fr;
   line-height: 22px;
@@ -70,36 +42,36 @@
   border: 1px solid transparent;
 }
 
-.nav .folder,
-.nav .code {
+.folder,
+.code {
   height: 100%;
   width: 15px;
 }
 
-.nav .code {
+.code {
   padding-right: 3px;
 }
 
-.nav.hover .submenu .submenu .submenu .border {
+.border {
   border-left: 1px solid #585858;
   height: 108%;
   z-index: 1000;
   position: relative;
 }
 
-.nav .folder::before {
+.folder::before {
   content: url(src/assets/down.svg);
 }
 
-.nav .folder.closed::before {
+.folder.closed::before {
   content: url(src/assets/right.svg);
 }
 
-.nav .code::before {
+.code::before {
   content: url(src/assets/code.svg);
 }
 
-.nav a {
+.link {
   color: #f2f2f2;
   text-decoration: none;
   display: block;
@@ -107,21 +79,21 @@
   height: 100%;
 }
 
-.nav .row:hover:not(.root) {
+.row:hover:not(.root) {
   color: #f2f2f2;
   background-color: #2a2d2e;
 }
 
-.nav .row.active {
+.row.active {
   background-color: #37373d;
 }
 
-.nav .row.selected {
+.row.selected {
   border: 1px solid #1481d1;
   background-color: #083a5d;
 }
 
-.nav .row.root.selected {
+.row.root.selected {
   border: 1px solid #1481d1;
   background-color: transparent;
 }

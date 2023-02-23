@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import styles from "./folder-menu.module.css";
 
 interface FolderMenuProps {
   data: Menu;
@@ -8,6 +9,7 @@ interface FolderMenuProps {
   setSelected: Dispatch<SetStateAction<string>>;
   collapsed: Record<string, boolean>;
   setCollapsed: Dispatch<SetStateAction<Record<string, boolean>>>;
+  mouseHover: boolean;
 }
 
 export default function FolderMenu({
@@ -18,20 +20,25 @@ export default function FolderMenu({
   setSelected,
   collapsed,
   setCollapsed,
+  mouseHover,
 }: FolderMenuProps): JSX.Element {
   // base case
   if (!data) return <></>;
 
   return (
-    <div className="submenu">
+    <div className={styles.submenu}>
       {data.map((item: MenuItem) => {
         if (item.isFolder) {
           return (
             <div key={item.name}>
               <div
-                className={`row${
-                  item.isRoot ? " root" : active === item.name ? " active" : ""
-                }${selected === item.name ? " selected" : ""}`}
+                className={`${styles.row}${
+                  item.isRoot
+                    ? " " + styles.root
+                    : active === item.name
+                    ? " " + styles.active
+                    : ""
+                }${selected === item.name ? " " + styles.selected : ""}`}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -45,12 +52,16 @@ export default function FolderMenu({
               >
                 <div></div>
                 <div
-                  className={`folder ${!!collapsed[item.name] ? "" : "closed"}`}
+                  className={`${styles.folder} ${
+                    !!collapsed[item.name] ? "" : styles.closed
+                  }`}
                 ></div>
                 {item.isRoot ? (
-                  <h3>{item.label}</h3>
+                  <h3 className={styles.subheader}>{item.label}</h3>
                 ) : (
-                  <a href={item.link}>{item.label}</a>
+                  <a className={styles.link} href={item.link}>
+                    {item.label}
+                  </a>
                 )}
               </div>
               {item.children && !!!collapsed[item.name] && (
@@ -63,6 +74,7 @@ export default function FolderMenu({
                     setSelected={setSelected}
                     collapsed={collapsed}
                     setCollapsed={setCollapsed}
+                    mouseHover={mouseHover}
                   />
                 </div>
               )}
@@ -72,9 +84,9 @@ export default function FolderMenu({
         return (
           <div
             key={item.name}
-            className={`row${active === item.name ? " active" : ""}${
-              selected === item.name ? " selected" : ""
-            }`}
+            className={`${styles.row}${
+              active === item.name ? " " + styles.active : ""
+            }${selected === item.name ? " " + styles.selected : ""}`}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -82,9 +94,11 @@ export default function FolderMenu({
               setSelected(item.name);
             }}
           >
-            <div className="border"></div>
-            <div className="code"></div>
-            <a href={item.link}>{item.label}</a>
+            <div className={`${mouseHover ? " " + styles.border : ""}`}></div>
+            <div className={styles.code}></div>
+            <a className={styles.link} href={item.link}>
+              {item.label}
+            </a>
           </div>
         );
       })}

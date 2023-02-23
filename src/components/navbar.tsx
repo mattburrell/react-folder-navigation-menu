@@ -1,7 +1,7 @@
-import "./navbar.css";
 import FolderMenu from "./folder-menu";
 import { useState } from "react";
 import { useOutsideClick } from "../hooks/use-outside-click";
+import styles from "./navbar.module.css";
 
 interface NavBarProps {
   title?: string;
@@ -34,15 +34,15 @@ export default function NavBar({ menu, title = "MENU" }: NavBarProps) {
 
   return (
     <nav
-      className={`nav${selected === "nav" ? " selected" : ""}${
-        mouseHover ? " hover" : ""
+      className={`${styles.nav}${
+        selected === "nav" ? " " + styles.selected : ""
       }`}
       ref={ref as any}
       onClick={handleOnClick}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
     >
-      <h2>{title}</h2>
+      <h2 className={styles.header}>{title}</h2>
       <FolderMenu
         data={menu}
         active={active}
@@ -51,6 +51,7 @@ export default function NavBar({ menu, title = "MENU" }: NavBarProps) {
         setSelected={setSelected}
         collapsed={collapsed}
         setCollapsed={setCollapsed}
+        mouseHover={mouseHover}
       />
     </nav>
   );
