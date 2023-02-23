@@ -1,15 +1,14 @@
-import "./NavBar.css";
-import FolderMenu from "./FolderMenu";
+import "./navbar.css";
+import FolderMenu from "./folder-menu";
 import { useState } from "react";
-import { useOutsideClick } from "./hooks/useOutsideClick";
-import { IMenu } from "./menu";
+import { useOutsideClick } from "../hooks/use-outside-click";
 
-export interface NavBarProps {
-  title: string;
+interface NavBarProps {
+  title?: string;
   menu: IMenu;
 }
 
-export default function NavBar({ menu, title }: NavBarProps) {
+export default function NavBar({ menu, title = "MENU" }: NavBarProps) {
   const [active, setActive] = useState<string>("");
   const [selected, setSelected] = useState<string>("");
   const [mouseHover, setMouseHover] = useState<boolean>(false);

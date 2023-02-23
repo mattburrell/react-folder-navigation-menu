@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from "react";
-import { IMenu, IMenuItem } from "./menu";
 
 export interface IFolderMenuProps {
   data: IMenu;

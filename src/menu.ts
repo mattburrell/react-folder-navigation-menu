@@ -1,15 +1,3 @@
-export type IMenu = IMenuItem[];
-
-export interface IMenuItem {
-  isFolder: boolean;
-  name: string; // must be unique
-  label: string;
-  icon?: string;
-  link?: string;
-  children?: IMenuItem[];
-  isRoot?: boolean;
-}
-
 const menu: IMenu = [
   {
     isFolder: true,
